@@ -38,7 +38,7 @@ Route::resource('Products',ProductController::class)->only([
     'index','show','store','update','destroy'
 ]);
 */
-Route::get('/', [ProductController::class, 'index'])->name("product.index");
+Route::get('Products', [ProductController::class, 'index'])->name("product.index");
 Route::get('Products', [ProductController::class, 'index'])->name("products.index");
 Route::get('Products/create', [ProductController::class, 'create'])->name("products.create");
 Route::post('Products', [ProductController::class, 'store'])->name("products.store");
