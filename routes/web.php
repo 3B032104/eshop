@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\CartItemController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -38,13 +39,23 @@ Route::resource('Products',ProductController::class)->only([
     'index','show','store','update','destroy'
 ]);
 */
+//Products
 Route::get('Products', [ProductController::class, 'index'])->name("product.index");
-Route::get('Products', [ProductController::class, 'index'])->name("products.index");
+Route::get('Products/{Product}', [ProductController::class, 'show'])->name("products.show");
 Route::get('Products/create', [ProductController::class, 'create'])->name("products.create");
 Route::post('Products', [ProductController::class, 'store'])->name("products.store");
 Route::get('Products/{product}/edit', [ProductController::class, 'edit'])->name("products.edit");
 Route::patch('Products/{product}', [ProductController::class, 'update'])->name("products.update");
 Route::delete('Products/{product}', [ProductController::class, 'destroy'])->name("products.destroy");
+
+//CartItems
+Route::get('CartItems', [CartItemController::class, 'index'])->name("cartItem.index");
+Route::get('CartItems/{Product}', [CartItemController::class, 'show'])->name("cartItem.show");
+Route::get('CartItems/create', [CartItemController::class, 'create'])->name("cartItem.create");
+Route::post('CartItems', [CartItemController::class, 'store'])->name("cartItem.store");
+Route::get('CartItems/{product}/edit', [CartItemController::class, 'edit'])->name("cartItem.edit");
+Route::patch('CartItems/{product}', [CartItemController::class, 'update'])->name("cartItem.update");
+Route::delete('CartItems/{product}', [CartItemController::class, 'destroy'])->name("cartItem.destroy");
 
 
 /*
