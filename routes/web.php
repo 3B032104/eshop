@@ -52,17 +52,17 @@ Route::delete('Products/{product}', [ProductController::class, 'destroy'])->name
 //CartItems
 Route::get('CartItems', [CartItemController::class, 'index'])->name("cartItem.index");
 /*
-Route::get('CartItems/{Product}', [CartItemController::class, 'show'])->name("cartItem.show");
+Route::get('CartItems/{cartItem}', [CartItemController::class, 'show'])->name("cartItem.show");
 Route::get('CartItems/create', [CartItemController::class, 'create'])->name("cartItem.create");
 Route::post('CartItems', [CartItemController::class, 'store'])->name("cartItem.store");
-Route::get('CartItems/{product}/edit', [CartItemController::class, 'edit'])->name("cartItem.edit");
-Route::patch('CartItems/{product}', [CartItemController::class, 'update'])->name("cartItem.update");
-Route::delete('CartItems/{product}', [CartItemController::class, 'destroy'])->name("cartItem.destroy");
+Route::get('CartItems/{cartItem}/edit', [CartItemController::class, 'edit'])->name("cartItem.edit");
+Route::patch('CartItems/{cartItem}', [CartItemController::class, 'update'])->name("cartItem.update");
+Route::delete('CartItems/{cartItem}', [CartItemController::class, 'destroy'])->name("cartItem.destroy");
 */
 
 //Order
 Route::get('Orders', [OrderController::class, 'index'])->name("orders.index");
-Route::get('Orders/{Product}', [OrderController::class, 'show'])->name("orders.show");
+Route::get('Orders/{order}', [OrderController::class, 'show'])->name("orders.show");
 
 /*
  * products.index

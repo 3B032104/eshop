@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Order;
 use App\Http\Requests\StoreOrderRequest;
 use App\Http\Requests\UpdateOrderRequest;
+use App\Models\OrderItem;
 
 class OrderController extends Controller
 {
@@ -40,8 +41,11 @@ class OrderController extends Controller
      */
     public function show(Order $order)
     {
-        //
+        return view('orders.show', [
+            'orderItems' => OrderItem::where('order_id', $order->id)->get()
+        ]);
     }
+
 
     /**
      * Show the form for editing the specified resource.

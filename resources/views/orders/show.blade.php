@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Order') }}
+            {{ __('Order Item') }}
         </h2>
     </x-slot>
 
@@ -15,24 +15,20 @@
                                 <thead class="bg-white">
                                 <tr>
                                     <th scope="col" class="relative isolate py-3.5 pr-3 text-left text-sm font-semibold text-gray-900">編號 </th>
-                                    <th scope="col" class="hidden px-3 py-3.5 text-left text-sm font-semibold text-gray-900 sm:table-cell">使用者編號</th>
+                                    <th scope="col" class="hidden px-3 py-3.5 text-left text-sm font-semibold text-gray-900 sm:table-cell">訂單編號</th>
+                                    <th scope="col" class="hidden px-3 py-3.5 text-left text-sm font-semibold text-gray-900 sm:table-cell">商品編號</th>
                                     <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">創建時間</th>
                                     <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">更新時間</th>
-                                    <th scope="col" class="relative py-3.5 pl-3">
-                                        內容
-                                    </th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($orders as $order)
+                                @foreach($orderItems as $orderItem)
                                     <tr>
-                                        <td class="relative py-4 pr-3 text-sm font-medium text-gray-900">{{ $order->id }}</td>
-                                        <td class="hidden px-3 py-4 text-sm text-gray-500 sm:table-cell">{{ $order->user_id }}</td>
-                                        <td class="px-3 py-4 text-sm text-gray-500">{{ $order->created_at }}</td>
-                                        <td class="px-3 py-4 text-sm text-gray-500">{{ $order->updated_at }}</td>
-                                        <td class="relative py-3.5 pl-3">
-                                            <a href="{{ route('orders.show', $order) }}" class="text-indigo-600 hover:text-indigo-900">展開</a>
-                                        </td>
+                                        <td class="relative py-4 pr-3 text-sm font-medium text-gray-900">{{ $orderItem->id }}</td>
+                                        <td class="hidden px-3 py-4 text-sm text-gray-500 sm:table-cell">{{ $orderItem->order_id }}</td>
+                                        <td class="hidden px-3 py-4 text-sm text-gray-500 sm:table-cell">{{ $orderItem->product_id }}</td>
+                                        <td class="px-3 py-4 text-sm text-gray-500">{{ $orderItem->created_at }}</td>
+                                        <td class="px-3 py-4 text-sm text-gray-500">{{ $orderItem->updated_at }}</td>
                                     </tr>
                                 @endforeach
                                 <!-- More people... -->
